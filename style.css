@@ -1,39 +1,49 @@
-path {
-    stroke: white;
-    fill:paleturquoise !important;
+h1 {
+  color: #000;
+}
 
-    transition: fill .4s ease;
+path {
+  stroke: white;
+  fill: paleturquoise !important;
+
+  transition: fill 0.4s ease;
 }
 
 path:hover {
-    fill: orange !important;
+  fill: orange !important;
+  cursor: pointer;
+}
+
+path.selected {
+  fill: darkblue !important;
 }
 
 #map-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #us-map {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #details-box {
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 24px;
-    position: fixed;
-    color: white;
-    font-family: "Poppins";
-    background-color: black;
-    width: fit-content;
-    transform: translateX(-50%);
-    transition: opacity .4s ease;
-    z-index: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 24px;
+  position: fixed;
+  color: white;
+  font-family: "Poppins";
+  background-color: black;
+  width: fit-content;
+  transform: translateX(-50%);
+  transition: opacity 0.4s ease;
+  z-index: 1;
 }
