@@ -503,6 +503,12 @@
     </div>
 
     <script>
+      class Visitor {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+      var siteVisitor = new Visitor("");
       var tooltipSpan = document.getElementById("details-box");
 
       document.addEventListener("mouseover", function (e) {
@@ -564,10 +570,11 @@
 
         if (
           localStorage.getItem("user") &&
-          localStorage.getItem("user") != ""
+          localStorage.getItem("user").name != ""
         ) {
+          siteVisitor.name = JSON.parse(localStorage.getItem("user")).name;
           document.getElementById("welcome").innerHTML =
-            "Welcome back, " + localStorage.getItem("user") + "!";
+            "Welcome back, " + siteVisitor.name + "!";
           document.getElementById("formUser").style.display = "none";
         }
       };
@@ -582,7 +589,9 @@
       document
         .getElementById("formUser")
         .addEventListener("submit", function (e) {
-          localStorage.setItem("user", document.getElementById("user").value);
+          siteVisitor.name = document.getElementById("user").value;
+          if (siteVisitor != null && siteVisitor.name != "")
+            localStorage.setItem("user", JSON.stringify(siteVisitor));
         });
     </script>
   </body>
